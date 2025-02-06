@@ -9,6 +9,7 @@ class Cell:
         self._x2 = None
         self._y1 = None
         self._y2 = None
+        self.visited = False
         self._win = canvas
         
     def draw(self, point1, point2):
@@ -16,22 +17,26 @@ class Cell:
         self._x2 = point2.x
         self._y1 = point1.y
         self._y2 = point2.y
+        top_left = point1
+        top_right = Point(self._x2, self._y1)
+        bot_left = Point(self._x1, self._y2)
+        bot_right = point2 
         if self.has_left_wall:
-            p1 = point1
-            p2 = Point(self._x1, self._y2)
-            Line(p1, p2).draw(self._win, 'black')
+            Line(top_left, bot_left).draw(self._win, 'black')
+        else:
+            Line(top_left, bot_left).draw(self._win, 'white')
         if self.has_right_wall:
-            p1 = point2
-            p2 = Point(self._x2, self._y1)
-            Line(p1, p2).draw(self._win, 'black')
+            Line(top_right, bot_right).draw(self._win, 'black')
+        else:
+            Line(top_right, bot_right).draw(self._win, 'white')
         if self.has_top_wall:
-            p1 = point1
-            p2 = Point(self._x2, self._y1)
-            Line(p1, p2).draw(self._win, 'black')
+            Line(top_left, top_right).draw(self._win, 'black')
+        else:
+            Line(top_left, top_right).draw(self._win, 'white')
         if self.has_bottom_wall:
-            p1 = point2
-            p2 = Point(self._x1, self._y2)
-            Line(p1, p2).draw(self._win, 'black')
+            Line(bot_left, bot_right).draw(self._win, 'black')
+        else:
+            Line(bot_left, bot_right).draw(self._win, 'white')
     def cell_move(self, to_cell, undo=False):
         color = 'red'
         if undo:
