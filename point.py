@@ -6,7 +6,7 @@ class Point:
         self.y = y
     
     def __repr__(self):
-        return (self.x, self.y)
+        return f'Point({self.x, self.y})'
     
 class Line:
     def __init__(self, point1, point2):
