@@ -38,12 +38,10 @@ class Cell:
         else:
             Line(bot_left, bot_right).draw(self._win, 'white')
     def cell_move(self, to_cell, undo=False):
-        color = 'red'
+        color = 'green'
         if undo:
-            color = 'gray'
+            color = 'red'
         center1 = Point((self._x2+self._x1)/2, (self._y2+self._y1)/2)
-        print(center1)
         center2 = Point((to_cell._x2+to_cell._x1)/2, (to_cell._y2+to_cell._y1)/2)
-        print(center2)
         Line(center1, center2).draw(self._win, color)
         

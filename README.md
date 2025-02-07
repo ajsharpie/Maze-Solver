@@ -1,3 +1,7 @@
 # Maze-Solver
 
-## This is a cute lil bootdev project using tkinter and python to create a maze generator/solver.
+## Details
+> This file creates mazes and solves(?) them. WIP
+
+### Future Feature Ideas
+> turn it into a dungeon style game. Add fog of war and a few event types and special squares to discover with events/points/rewards?

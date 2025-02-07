@@ -9,8 +9,9 @@ def main():
     
     num_cols = 15
     num_rows = 15
-    m1 = Maze(2, 2, num_rows, num_cols, 15, 15, win=win, seed=1)
+    m1 = Maze(2, 2, num_rows, num_cols, 15, 15, win=win)
     
+    m1.solve()
     
     
     #--bottom of render code--
